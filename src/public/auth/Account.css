@@ -1,0 +1,326 @@
+* {
+  --tw-shadow: 0 0 #0000;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgba(59, 130, 246, 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  border-color: #e5e7eb;
+}
+
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  tab-size: 4;
+}
+
+body {
+  margin: 0;
+  font-family: inherit;
+  line-height: inherit;
+}
+
+.WidthScreen {
+  width: 100vw;
+}
+
+.HeightScreen {
+  height: 100vh;
+}
+
+.FlexContainer {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.login {
+  width: 100%;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.logo {
+  margin-bottom: 0.75rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.icon_logo {
+  margin-left: 0.5rem;
+  height: 3rem !important;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-style: solid;
+}
+
+.logo_text {
+  margin-left: 1rem;
+}
+
+.logo_text > h3 {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.logo_text > p {
+  margin: 0;
+}
+
+.ShadowBox {
+  --tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.Box {
+  padding: 2.5rem;
+  height: 100%;
+}
+
+.Box > h3 {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.BoxTitle {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 700;
+}
+
+#id {
+  width: 100%;
+  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+  margin-top: 1.5rem !important;
+  display: block;
+  border-bottom-width: 2px;
+  line-height: inherit;
+  color: inherit !important;
+}
+
+#pw {
+  width: 100%;
+  margin-top: 0.75rem !important;
+  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+  display: block;
+  border-bottom-width: 2px;
+  line-height: inherit;
+  color: inherit !important;
+}
+
+#signup_pw {
+  width: 100%;
+  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+  margin-top: 1.5rem !important;
+  display: block;
+  border-bottom-width: 2px;
+  line-height: inherit;
+  color: inherit !important;
+}
+
+#grade {
+  width: 100%;
+  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+  margin-top: 1.5rem !important;
+  display: block;
+  border-bottom-width: 2px;
+  line-height: inherit;
+  color: inherit !important;
+}
+
+#class {
+  width: 100%;
+  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+  margin-top: 1.5rem !important;
+  display: block;
+  border-bottom-width: 2px;
+  line-height: inherit;
+  color: inherit !important;
+}
+
+#number {
+  width: 100%;
+  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+  margin-top: 1.5rem !important;
+  display: block;
+  border-bottom-width: 2px;
+  line-height: inherit;
+  color: inherit !important;
+}
+
+#RoomNumber {
+  width: 100%;
+  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+  margin-top: 1.5rem !important;
+  display: block;
+  border-bottom-width: 2px;
+  line-height: inherit;
+  color: inherit !important;
+}
+
+#name {
+  width: 100%;
+  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+  margin-top: 1.5rem !important;
+  display: block;
+  border-bottom-width: 2px;
+  line-height: inherit;
+  color: inherit !important;
+}
+
+#phone {
+  width: 100%;
+  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+  margin-top: 1.5rem !important;
+  display: block;
+  border-bottom-width: 2px;
+  line-height: inherit;
+  color: inherit !important;
+}
+
+#grade, #class, #number #RoomNumber {
+  -moz-appearance: textfield;
+}
+
+input::placeholder, textarea::placeholder {
+  opacity: 1;
+  color: #9ca3af !important;
+  padding: 0;
+  line-height: inherit;
+  color: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  margin: 0;
+}
+
+#grade:focus-visible, 
+#class:focus-visible, 
+#number:focus-visible, 
+#id:focus-visible, 
+#pw:focus-visible, 
+#name:focus-visible, 
+#phone:focus-visible, 
+#RoomNumber:focus-visible {
+  --tw-border-opacity: 1;
+  border-color: rgba(101, 194, 228);
+  outline: 1px dotted ButtonText;
+}
+
+.LoginBtn { 
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255);
+  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+  margin-top: 0.75rem !important;
+  font-weight: 700;
+  border-radius: 0.25rem;
+  --tw-bg-opacity: 1;
+  background-color: rgba(101, 194, 228);
+  line-height: inherit;
+  cursor: pointer;
+  background-image: none;
+  text-transform: none;
+  font-family: inherit;
+  font-size: 100%;
+  margin: 0;
+  -webkit-appearance: button;
+}
+
+.RegistBtn {
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255);
+  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+  margin: 0.75rem 0 0 0.75rem !important;
+  font-weight: 700;
+  border-radius: 0.25rem;
+  --tw-bg-opacity: 1;
+  background-color: rgba(101, 194, 228);
+  line-height: inherit;
+  cursor: pointer;
+  background-image: none;
+  text-transform: none;
+  font-family: inherit;
+  font-size: 100%;
+  -webkit-appearance: button;
+}
+
+.SignUpBtn {
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255);
+  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+  margin-top: 0.75rem !important;
+  font-weight: 700;
+  border-radius: 0.25rem;
+  --tw-bg-opacity: 1;
+  background-color: rgba(101, 194, 228);
+  line-height: inherit;
+  cursor: pointer;
+  background-image: none;
+  text-transform: none;
+  font-family: inherit;
+  font-size: 100%;
+  margin: 0;
+  -webkit-appearance: button;
+}
+
+.haveAccount {
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255);
+  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+  margin-top: 0.75rem !important;
+  font-weight: 700;
+  border-radius: 0.25rem;
+  --tw-bg-opacity: 1;
+  background-color: rgba(101, 194, 228);
+  line-height: inherit;
+  cursor: pointer;
+  background-image: none;
+  text-transform: none;
+  font-family: inherit;
+  font-size: 100%;
+  margin: 0;  
+  -webkit-appearance: button;
+}
+
+.LoginBtn::-moz-focus-inner, .RegistBtn::-moz-focus-inner, .SignUpBtn::-moz-focus-inner, .haveAccount::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+.StudentID {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.SignUp {
+  gap: 0.5rem;
+  display: flex;
+}
+
+@media (min-width: 640px) {
+  .login {
+    width: 41.666667%;
+  }
+}
+
+@media (min-width: 768px) {
+  .login {
+    width: 33.333333%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .login {
+    width: 25%;
+  }
+}
