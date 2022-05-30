@@ -51,18 +51,17 @@ export class PanelService {
             const dryer_nop = await db.select('*').from('Laundry').where({ gender: token.gender, floor: token.room[0], type: 2 })
             
             for (const wash of washer_nop) {
-              await db.update({ active: 0, Student_ID: 0, name: 0, time: 0, room: 0 })
+              await db.update({ active: 0, Student_ID: 0, name: 0, time: 0, room: 0, last_user: user.room + '호 ' + user.Name })
                 .from('Laundry')
                 .where({ type: wash.type, Student_ID: wash.Student_ID, active: 1, name: wash.name, time: wash.time })
-                .andWhereRaw(`${Date.now()} >= ${wash.time + 10800000}`)
-              
+                .andWhereRaw(`${Date.now()} >= ${wash.time + 18000000}`)
             }
 
             for (const dry of dryer_nop) {
-              await db.update({ active: 0, Student_ID: 0, name: 0, time: 0, room: 0 })
+              await db.update({ active: 0, Student_ID: 0, name: 0, time: 0, room: 0, last_user: user.room + '호 ' + user.Name })
                 .from('Laundry')
                 .where({ type: dry.type, Student_ID: dry.Student_ID, active: 1, name: dry.name, time: dry.time })
-                .andWhereRaw(`${Date.now()} >= ${dry.time + 10800000}`)
+                .andWhereRaw(`${Date.now()} >= ${dry.time + 18000000}`)
             }
 
             const washer_active = await db.select('*').from('Laundry').where({ gender: token.gender, floor: token.room[0], type: 1 })
@@ -72,8 +71,8 @@ export class PanelService {
               statusCode: HttpStatus.OK, 
               message: '', 
               token, 
-              washer_active, 
-              dryer_active 
+              washer: washer_active, 
+              dryer: dryer_active 
             });
           } else {
             return res.status(HttpStatus.OK).send({ statusCode: HttpStatus.OK, message: '사용자 정보를 정상적으로 불러왔습니다.', token });
@@ -129,7 +128,8 @@ export class PanelService {
                   room: 0, 
                   name: "0", 
                   Student_ID: "0",  
-                  time: 0 
+                  time: 0,
+                  last_user: user.room + '호 ' + user.Name,
                 }).where({ 
                   num: machineNum, 
                   type, 
@@ -139,7 +139,7 @@ export class PanelService {
 
                 return res.status(HttpStatus.OK).send({ 
                   statusCode: HttpStatus.OK, 
-                  message: '세탁기 사용 취소 요청 <br/>정상적으로 처리 되었습니다.' 
+                  message: '기기 사용 취소 요청 <br/>정상적으로 처리 되었습니다.' 
                 })
               } else {
                 return res.status(HttpStatus.BAD_REQUEST).send({ statusCode: HttpStatus.BAD_REQUEST, message: '사용자 정보가 일치하지 않습니다.' })
@@ -160,7 +160,7 @@ export class PanelService {
 
               return res.status(HttpStatus.OK).send({ 
                 statusCode: HttpStatus.OK, 
-                message: '세탁기 사용 요청이 <br/>정상적으로 처리 되었습니다.'
+                message: '기기 사용 요청이 <br/>정상적으로 처리 되었습니다.'
               })
             }
           } else {

@@ -71,7 +71,7 @@ function App() {
             <div key={1} className="box1">
               <span className="block_mb-2">{washer.num}번 세탁기</span>
               <span className="block_mb-2">{washer.active === 1 ? washer.Student_ID === data.token.Student_ID ? makeTimeText(washer.time) + " 동안 사용 중" : makeTimeText(washer.time) + " 동안 사용 중" : "사용 가능"}</span>
-              <span className="block_mb-2">{washer.active === 1 ? washer.room + "호 " + washer.name + " 사용중" : todayTimeText()}</span>
+              <span className="block_mb-2">{washer.active === 1 ? washer.room + "호 " + washer.name + " 사용중" : "마지막 사용자: " + washer.last_user}</span>
               <br/>
               <span className={"block_mb-5 " + (washer.active === 1 ? washer.Student_ID === data.token.Student_ID ? "textcolor-Gray" : "textcolor-Red" : "textcolor-Success")}>{(washer.active === 1 ? washer.Student_ID === data.token.Student_ID ? "취소" : "사용 불가능" : "사용 가능")}</span>
               <div className={(washer.active === 1 ? washer.Student_ID === data.token.Student_ID ? "GrayBtn" : "RedBtn" : "BlueBtn")} onClick={(e) => useLaundry(washer.num, 1, e)}>{(washer.active === 1 ? washer.Student_ID === data.token.Student_ID ? "사용 취소" : "사용 불가" : "사용 가능")}</div>
@@ -82,7 +82,7 @@ function App() {
             <div key={4} className="box1">
               <span className="block_mb-2">{dryer.num}번 건조기</span>
               <span className="block_mb-2">{dryer.active === 1 ? dryer.Student_ID === data.token.Student_ID ? makeTimeText(dryer.time) + " 동안 사용 중" : makeTimeText(dryer.time) + " 동안 사용 중" : "사용 가능"}</span>
-              <span className="block_mb-2">{dryer.active === 1 ? dryer.room + "호 " + dryer.name + " 사용중" : todayTimeText()}</span>
+              <span className="block_mb-2">{dryer.active === 1 ? dryer.room + "호 " + dryer.name + " 사용중" : "마지막 사용자: " + dryer.last_user}</span>
               <br/>
               <span className={"block_mb-5 " + (dryer.active === 1 ? dryer.Student_ID === data.token.Student_ID ? "textcolor-Gray" : "textcolor-Red" : "textcolor-Success")}>{(dryer.active === 1 ? dryer.Student_ID === data.token.Student_ID ? "취소" : "사용 불가능" : "사용 가능")}</span>
               <div className={(dryer.active === 1 ? dryer.Student_ID === data.token.Student_ID ? "GrayBtn" : "RedBtn" : "BlueBtn")} onClick={(e) => useLaundry(dryer.num, 2, e)}>{(dryer.active === 1 ? dryer.Student_ID === data.token.Student_ID ? "사용 취소" : "사용 불가" : "사용 가능")}</div>
