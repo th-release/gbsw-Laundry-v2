@@ -53,9 +53,14 @@ export class PanelService {
               await db.update({ active: 0, Student_ID: 0, name: 0, time: 0, room: 0 })
                 .from('Laundry')
                 .where({ gender: token.gender, floor: token.room[0], type: 1 })
-                .andWhere('time', '<=', wash.time + 10800000)
+                .andWhere('time', '<=', Number(wash.time + 10800000))
             }
-            await db.update('*').from('Laundry').where('')
+            for (const dry of dryer) {
+              await db.update({ active: 0, Student_ID: 0, name: 0, time: 0, room: 0 })
+                .from('Laundry')
+                .where({ gender: token.gender, floor: token.room[0], type: 1 })
+                .andWhere('time', '<=', Number(dry.time + 10800000))
+            }
             return res.status(HttpStatus.OK).send({ 
               statusCode: HttpStatus.OK, 
               message: '', 
