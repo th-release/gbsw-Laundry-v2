@@ -47,26 +47,33 @@ export class PanelService {
               })
             }
           } else if (type === 'Laundry') {
-            const washer = await db.select('*').from('Laundry').where({ gender: token.gender, floor: token.room[0], type: 1 })
-            const dryer = await db.select('*').from('Laundry').where({ gender: token.gender, floor: token.room[0], type: 2 })
-            for (const wash of washer) {
+            const washer_nop = await db.select('*').from('Laundry').where({ gender: token.gender, floor: token.room[0], type: 1 })
+            const dryer_nop = await db.select('*').from('Laundry').where({ gender: token.gender, floor: token.room[0], type: 2 })
+            
+            for (const wash of washer_nop) {
               await db.update({ active: 0, Student_ID: 0, name: 0, time: 0, room: 0 })
                 .from('Laundry')
-                .where({ gender: wash.gender, floor: wash.room[0], type: wash.type, Student_ID: wash.Student_ID, active: 1, name: wash.name, time: wash.time })
-                .andWhere('time', '<=', Date.now() - 10800000)
+                .where({ type: wash.type, Student_ID: wash.Student_ID, active: 1, name: wash.name, time: wash.time })
+                .andWhereRaw(`${Date.now()} >= ${wash.time + 10800000}`)
+              
             }
-            for (const dry of dryer) {
+
+            for (const dry of dryer_nop) {
               await db.update({ active: 0, Student_ID: 0, name: 0, time: 0, room: 0 })
                 .from('Laundry')
-                .where({ gender: dry.gender, floor: dry.room[0], type: dry.type, Student_ID: dry.Student_ID, active: 1, name: dry.name, time: dry.time })
-                .andWhere('time', '<=', Date.now() - 10800000)
+                .where({ type: dry.type, Student_ID: dry.Student_ID, active: 1, name: dry.name, time: dry.time })
+                .andWhereRaw(`${Date.now()} >= ${dry.time + 10800000}`)
             }
+
+            const washer_active = await db.select('*').from('Laundry').where({ gender: token.gender, floor: token.room[0], type: 1 })
+            const dryer_active = await db.select('*').from('Laundry').where({ gender: token.gender, floor: token.room[0], type: 2 })
+
             return res.status(HttpStatus.OK).send({ 
               statusCode: HttpStatus.OK, 
               message: '', 
               token, 
-              washer, 
-              dryer 
+              washer_active, 
+              dryer_active 
             });
           } else {
             return res.status(HttpStatus.OK).send({ statusCode: HttpStatus.OK, message: '사용자 정보를 정상적으로 불러왔습니다.', token });
