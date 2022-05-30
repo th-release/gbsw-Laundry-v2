@@ -49,6 +49,13 @@ export class PanelService {
           } else if (type === 'Laundry') {
             const washer = await db.select('*').from('Laundry').where({ gender: token.gender, floor: token.room[0], type: 1 })
             const dryer = await db.select('*').from('Laundry').where({ gender: token.gender, floor: token.room[0], type: 2 })
+            for (const wash of washer) {
+              await db.update({ active: 0, Student_ID: 0, name: 0, time: 0, room: 0 })
+                .from('Laundry')
+                .where({ gender: token.gender, floor: token.room[0], type: 1 })
+                .andWhere('time', '<=', wash.time + 10800000)
+            }
+            await db.update('*').from('Laundry').where('')
             return res.status(HttpStatus.OK).send({ 
               statusCode: HttpStatus.OK, 
               message: '', 

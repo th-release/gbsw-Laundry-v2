@@ -11,6 +11,6 @@ async function bootstrap() {
   app.useStaticAssets(join(__dirname, '../../src', 'public'));
   app.setBaseViewsDir(join(__dirname, '../../src', 'public'));
   app.setViewEngine('hbs');
-  await app.listen(7000);
+  await app.listen(8000);
 }
 bootstrap();

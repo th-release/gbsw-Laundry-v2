@@ -126,7 +126,7 @@ export class AuthService {
             Student_ID: StudentID, 
             Name, 
             gender: 0, 
-            Created_At: new Date(Date.now() + 32400000)
+            Created_At: new Date()
           }).into('Accounts')
         } else {
           await db.insert({ 

@@ -23,7 +23,7 @@ function App() {
         }
       }, 300);
       setTimeout(() => {
-        window.location.href = "/panel/"
+        window.location.href = "/panel"
       }, 400)
       return (
         <div></div>
