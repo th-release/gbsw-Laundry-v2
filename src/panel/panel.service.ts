@@ -52,14 +52,14 @@ export class PanelService {
             for (const wash of washer) {
               await db.update({ active: 0, Student_ID: 0, name: 0, time: 0, room: 0 })
                 .from('Laundry')
-                .where({ gender: token.gender, floor: token.room[0], type: 1 })
-                .andWhere('time', '<=', Number(wash.time + 10800000))
+                .where({ gender: wash.gender, floor: wash.room[0], type: wash.type, Student_ID: wash.Student_ID, active: 1, name: wash.name, time: wash.time })
+                .andWhere('time', '<=', Date.now() - 10800000)
             }
             for (const dry of dryer) {
               await db.update({ active: 0, Student_ID: 0, name: 0, time: 0, room: 0 })
                 .from('Laundry')
-                .where({ gender: token.gender, floor: token.room[0], type: 1 })
-                .andWhere('time', '<=', Number(dry.time + 10800000))
+                .where({ gender: dry.gender, floor: dry.room[0], type: dry.type, Student_ID: dry.Student_ID, active: 1, name: dry.name, time: dry.time })
+                .andWhere('time', '<=', Date.now() - 10800000)
             }
             return res.status(HttpStatus.OK).send({ 
               statusCode: HttpStatus.OK, 
