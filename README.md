@@ -1,15 +1,8 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+```
+경북 소프트웨어 고등학교 기숙사 내에서 세탁실 이용 중 질서와 주인을 찾기에 불편함을 느껴서 만든 gbsw-Laundry-v2 입니다.
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-
-
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+현재 서버가 돌아가는 중이고, 계속 업데이트 예정
+```
 
 ## Installation
 
